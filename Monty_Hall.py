@@ -54,9 +54,9 @@ def monty_python():
     ]
     Odpre = random.choice(ost_vr_ž)
 
-    # Vpšraša nas, če bi si premislili
+    # Vpraša nas, če bi si premislili
     alt_izb = [vr for vr in vrata if vr != pizbira and vr != Odpre][0]
-    alt = input(f"Voditelj je odrpl vrata {Odpre}. Bi si premislili, in raje odprili {alt_izb}? (da / ne):").lower()
+    alt = input(f"Voditelj je odrpl vrata {Odpre}. Bi si premislili, in raje odprli {alt_izb}? (da / ne):").lower()
             
     # določi zadnjo izbiro
     F = alt_izb if alt == "da" else pizbira
