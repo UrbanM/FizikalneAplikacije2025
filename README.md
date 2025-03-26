@@ -1,5 +1,5 @@
 # Moje Domače naloge
 ## DN1: Monty-Hallow problem
 Beri Opis v main branchu :)
-## 
+## DN2: Analiza EKG signala
 Uredim v main branchu!
