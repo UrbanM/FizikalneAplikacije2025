@@ -31,7 +31,7 @@ Na EKG izrisu se lepo vidijo količine (pojavi), ki jih velikokrat označujemo s
 - S: padec pod referenco po glavni električni aktivaciji (R) - Nadaljevanje depolarizacije prekatov.
 - T: majhen naraščaj v električnem potencialu, ki pripada repolarizaciji ventriklov (prekati se "resetirajo" in začne se nov cikel (utrip)).
 
-Pozicije PQRST so odvisne od frekvence srčnega utripa, stanja srca in velikosti srca. Časovni intervali; PR ~ 100-200 ms, QT ~ 300-450 ms {skupaj $\Tau\approx (600-800)$ ms}. (`Reference`)
+Pozicije PQRST so odvisne od frekvence srčnega utripa, stanja srca in velikosti srca. Časovni intervali; PR ~ 100-200 ms, QT ~ 300-450 ms {skupaj $\tau\approx (600-800)$ ms}. (`Reference`)
 
 ## Reference
 1. [HRV (1996)](https://www.escardio.org/static-file/Escardio/Guidelines/Scientific-Statements/guidelines-Heart-Rate-Variability-FT-1996.pdf).
