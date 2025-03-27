@@ -1,7 +1,7 @@
 # Analiza EKG signala
 V datoteki EKG.py je pythonova skripta za analizo in vizualizacijo signalov EKG (elektrokardiograma), in izračun variabilnosti srčnega utripa (heart rate variability (ang. HRV)).
 
-## Kaj program dela (podorbno)
+## Kaj program dela (podrobno)
 - Vizualizacija EKG signalov v realnem času (EKG-RT).
 - Izračun frekvence srčnega utripa in animacija spreminjanja frekvence srčnega utripa (niha s časom).
 - Analiza "RR" intervalov (intervalov med zaporednima srčnima utripoma).
