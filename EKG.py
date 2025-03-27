@@ -22,7 +22,7 @@ for ts in t_stmp:
     times.append(seconds)
 times = np.array(times) - times[0]  # Relativni čas (sekunde)
 #debug------------------------------------------------------------------|
-#time_limit = 12  # seconds
+#time_limit = 12  # (s)
 #mask = times <= time_limit
 #times = times[mask]
 #-----------------------------------------------------------------------|
@@ -37,11 +37,11 @@ print(f"Frekvenca vzorčenja: {samp_rate:.2f} Hz\n")
 #-----------------------------------------------------------------------|
 
 # 3. Pretvorba bitov v mV
-v_mV = (v_bits * 5000) / 1023  # Convert bits to mV (Če želim V, množim s 5, ne 5000)
-#v_mV = v_mV[mask] # DEBUG: maskiranje signalov, da izbrišemo šum zredi meritve
+v_mV = (v_bits * 5000) / 1023  # (Če želim V, množim s 5, ne 5000)
+#v_mV = v_mV[mask] # DEBUG: maskiranje signalov, da izbrišemo šum sredi meritve
 
-# 4. Poiščem "vrhove" - maksimalne vrednosti filtriram, tako da zahtevam, da je signal vsaj 59%
-# makismalne vrednosti napetosti in počakam nsalednjih 30-50 časovnih korakov, da ne preberem istega
+# 4. Poiščem "vrhove" - maksimalne vrednosti filtriram, tako da zahtevam, da je signal vsaj 59 %
+# maksimalne vrednosti napetosti in počakam naslednjih 30-50 časovnih korakov, da ne preberem istega
 # vrha in okolice 2x - Tole je treba prilagoditi glede na signal,
 # ki ga imamo in eksperimentirati za optimalno delovanje
 max_mV = np.max(v_mV)             # Max vrednost v mV
@@ -49,12 +49,12 @@ threshold = 0.59 * max_mV         # Set threshold to 59 % max voltaže (mV)
 min_distance = int(.33*samp_rate)  # Minimalna razdalja med maksimumi (0.33 s ustreza maksimalni predvideni frekvenci ~ 180 bpm)
 peaks, _ = find_peaks(v_mV, height=threshold, distance=min_distance)
 
-# 5. Izračunam RR intervale (ang. SDNN)
+# 5. Izračunam RR intervale
 peak_times = times[peaks]           # časi maksimumov
 rr_intervals = np.diff(peak_times)  # Razlike med zaporednimi utripi (s)
 
 # Odstranim RR intervale, ki niso smiselni (>1.5 s za utrip je mal too much, oz. 0.3 sekunde mal premal)
-if len(rr_intervals) > 0: # sistem deluje dinamično in je aplikanilen za osebe z nizkimi in viskimi frekvencami srčnega utripa
+if len(rr_intervals) > 0: # sistem deluje dinamično in je aplikabilen na osebe z nizkimi in visokimi frekvencami srčnega utripa
     median_rr = np.median(rr_intervals)
     v_rr_mask = (rr_intervals > median_rr*0.5) & (rr_intervals < median_rr*1.5) # verjetni RR int
     c_rr = rr_intervals[v_rr_mask] # popucani RR int
@@ -69,7 +69,7 @@ print("Max RR (Raw):", np.max(rr_intervals) if len(rr_intervals)>0 else "Ništa"
 print("Max RR (filt):", np.max(c_rr) if len(c_rr)>0 else "Kaj te vem")
 print("\n")
 
-# Znova preračunam razlike s filtritanimi podatki
+# Znova preračunam razlike s filtriranimi podatki
 if len(c_rr)>=2:
     rr_diff_c = np.diff(c_rr)
 else:
@@ -97,7 +97,7 @@ if len(peak_times) >= 2:
     t_time = peak_times[-1] - peak_times[0] # Skupni čas v sekundah
     h_r = (len(peaks) - 1) / t_time * 60    # Utrip na minuto (bpm)
 else:
-    h_r=0 # brez vrhov (press f to pay respects)
+    h_r = 0 # brez vrhov (press f to pay respects)
 print(f"Povprečni srčni utrip: {h_r:.2f} bpm")
 
 # 7. Variabilnost srčnega utripa (HRV)
@@ -105,7 +105,7 @@ print(f"Povprečni srčni utrip: {h_r:.2f} bpm")
 if len(c_rr)>=2:
     sdnn = np.std(c_rr,ddof=1)*1000 # std RR intervalov v ms
 else:
-    sdnn=0 # Če ni dovolj podatkov, si al mrtu al pa ni dovolj podatkov
+    sdnn = 0 # Če ni dovolj podatkov, si al mrtu al pa ni dovolj podatkov
 print(f"Variabilnost utripa (HRV - SDNN): {sdnn:.2f} ms")
 
 # Kratkoročna variabilnost
@@ -214,7 +214,7 @@ ax.set_title("EKG v realnem času")
 # Inicializacija
 line, = ax.plot([], [], lw=1)
 current_peak = ax.plot([], [], "ro", alpha=0)[0]  # Trenutni maks
-display_window = 5 # Okno prikaza RT anim v sekindah (5 sekundni int)
+display_window = 5 # Okno prikaza RT anim v sekundah (5 sekundni int)
 
 # Data za anim
 x_data = np.array([])
@@ -256,7 +256,7 @@ def animate(frame):
     
     return line, current_peak
 
-# Interval računam glede na ffrekvenco vzorčenja
+# Interval računam glede na frekvenco vzorčenja
 frame_interval = (1/samp_rate) * 1000  # ms na korak
 
 # Ustvari anim
