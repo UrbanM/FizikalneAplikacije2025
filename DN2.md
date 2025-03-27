@@ -30,6 +30,10 @@ import matplotlib.animation as animation
     - `RR_intervals.png`: RR interval.
 - `.mp4` datoteka z animacijo spreminjanja frekvence srčnega utripa.
 - `.mp4` datoteka z animacijo EKG signala v realnem času.
+- Izračuni:
+    - BPM: 65,29.
+    - HRV (SDNN): 55,69 ms.
+    - HRV (RMSSD): 56,83 ms.
 
 ## Uporaba
 1. Datoteke z EKG signali in časovnimi žigi uvozimo v python iz poljubnega mesta (posodobi variablo `fp` v EKG.py!).
