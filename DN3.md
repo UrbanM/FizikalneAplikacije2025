@@ -25,19 +25,7 @@ Python uporabimo za analizo EKG signalov, ki smo jih zajeli med normalnim dihanj
 
 Main.py pirčakuje sledečo strukturo:
 
-Poljubna delovna mapa/
-│
-├── Analiza_ekg2.py
-│
-└───fun/
-│
-├── filters.py
-├── izris.py
-├── RR.py
-├── HRVBPM.py
-├── Testi.py
-│
-└───*.npy
+Poljubna delovna mapa/[Analiza_ekg2.py, /fun[filters.py, izris.py, RR.py, HRVBPM.py, Testi.py, *.npy]]
 
 ## Pričakovane knjižnice
 
