@@ -55,10 +55,7 @@ Slede knjižnice so obvezne za popolno delovanje skript:
 2.  pripravi delovno okolje (mapo).
 3.  Vstavi `.npy` datoteke v mapo `fun/`.
 4.  Prestavi se s konzolo v `Projektna_mapa/`.
-5.  Poženi main.py:
-    ```bash
-    python Analiza_ekg2.py
-    ```
+5.  Poženi main.py `Analiza_ekg2.py`
 
 ## Moduli
 
