@@ -42,7 +42,7 @@ Slede knjižnice so obvezne za popolno delovanje skript:
 * Skripta pričakuje, da je v `.npy` datoteki ali:
     * Matrika oblike: `'Time (s)'` in `'Input 1 (V)'`.
     * Navaden np array s podatki o amplitudi in času.
-    * TKoda obravnava obba primera (ker nisem vedel kaka je zalčetna struktura, sem moral implementirati obe možnosti, od katerih je načeloma prava 1.).
+    * Koda obravnava oba primera (ker nisem vedel kaka je zalčetna struktura, sem moral implementirati obe možnosti, od katerih je načeloma prava 1.).
 * Modul `HRVBPM.py` privzame **statične in predhodno definirane pogoje faz dihanja**:
     * 0 - 120 seconds: Normalno dihanje
     * 120 ~ 200 seconds: Hiperventilacija
